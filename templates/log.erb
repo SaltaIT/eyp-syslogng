@@ -1,0 +1,5 @@
+
+log {
+  <% @sourcelist.each do |val| -%>source(<%= val %>); <% end %>
+  <% @destinationlist.each do |val| -%>destination(<%= val %>); <% end %>
+};
