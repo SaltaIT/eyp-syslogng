@@ -6,11 +6,6 @@ class syslogng  (
 
   validate_re($ensure, [ '^installed$', '^latest$', '^purged$' ], "Not a valid package status: ${ensure}")
 
-  if defined(Class['ntteam'])
-	{
-		ntteam::tag{ 'syslogng': }
-	}
-
   include epel
 
   package { $syslogng::params::syslogng_package:
