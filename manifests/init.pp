@@ -7,9 +7,9 @@ class syslogng  (
                   $service_enable        = true,
                 ) inherits syslogng::params {
 
-  class { '::syslogng::install': } ->
-  class { '::syslogng::config': } ~>
-  class { '::syslogng::service': } ->
+  class { 'syslogng::install': } ->
+  class { 'syslogng::config': } ~>
+  class { 'syslogng::service': } ->
   Class['::syslogng']
 
 }
