@@ -4,6 +4,7 @@
 
 * **INCOMPATIBLE CHANGES**:
   - Renamed syslogng variables
+  - Dropped TLS support for syslogng::source
 
 ## 0.1.8
 
