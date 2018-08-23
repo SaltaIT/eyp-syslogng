@@ -9,7 +9,7 @@ define syslogng::destination(
                             )
 {
 
-  concat::fragment{ "${syslogngconf} destination ${destinationname} ${pathpattern}":
+  concat::fragment{ "${syslogng::params::syslogngconf} destination ${destinationname} ${pathpattern}":
     target  => $syslogng::params::syslogngconf,
     order   => '93',
     content => inline_template("\ndestination ${destinationname} { file(\"${pathpattern}\" \

@@ -9,7 +9,7 @@ define syslogng::source (
                         )
 {
 
-  validate_re($protocol, [ '^tcp$', '^udp$' ], "supported protocols: tcp/udp")
+  validate_re($protocol, [ '^tcp$', '^udp$' ], 'supported protocols: tcp/udp')
 
   if($tlskey or $tlscert or $subjectselfsigned)
   {
@@ -42,30 +42,30 @@ define syslogng::source (
       validate_string($tlskey)
 
       file { "/etc/pki/tls/private/syslogng-${sourcename}.key":
-				ensure  => 'present',
-				owner   => 'root',
-				group   => 'root',
-				mode    => '0644',
-				require => Package['openssl'],
-				notify  => Service[$syslogng::params::syslogng_servicename],
-				audit   => 'content',
-				source  => $tlspk
-			}
+        ensure  => 'present',
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        require => Package['openssl'],
+        notify  => Service[$syslogng::params::syslogng_servicename],
+        audit   => 'content',
+        source  => $tlspk
+      }
 
-			file { "/etc/pki/tls/certs/syslogng-${sourcename}.pem":
-				ensure  => 'present',
-				owner   => 'root',
-				group   => 'root',
-				mode    => '0644',
-				require => Package['openssl'],
-				notify  => Service[$syslogng::params::syslogng_servicename],
-				audit   => 'content',
-				source  => $tlscert
-			}
+      file { "/etc/pki/tls/certs/syslogng-${sourcename}.pem":
+        ensure  => 'present',
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        require => Package['openssl'],
+        notify  => Service[$syslogng::params::syslogng_servicename],
+        audit   => 'content',
+        source  => $tlscert
+      }
     }
     else
     {
-      fail("everytime you forget required a TLS file, God kills a kitten - please think of the kittens")
+      fail('everytime you forget required a TLS file, God kills a kitten - please think of the kittens')
     }
   }
 
