@@ -6,12 +6,21 @@ class syslogng::params {
     {
       case $::operatingsystemrelease
       {
-        /^[67].*$/:
+        /^6.*$/:
         {
           $syslogng_package='syslog-ng'
           $rsyslog_servicename='rsyslog'
           $syslogng_servicename='syslog-ng'
           $syslogngconf='/etc/syslog-ng/syslog-ng.conf'
+          $template_name='syslogngconf'
+        }
+        /^7.*$/:
+        {
+          $syslogng_package='syslog-ng'
+          $rsyslog_servicename='rsyslog'
+          $syslogng_servicename='syslog-ng'
+          $syslogngconf='/etc/syslog-ng/syslog-ng.conf'
+          $template_name='syslogngconf35'
         }
         default: { fail('Unsupported RHEL/CentOS version!')  }
       }

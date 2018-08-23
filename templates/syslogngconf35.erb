@@ -1,8 +1,10 @@
-@version:3.2
+@version:3.5
+@include "scl.conf"
 
 #
 # puppet managed file
 #
+
 
 # syslog-ng configuration file.
 #
@@ -11,22 +13,24 @@
 #
 # See syslog-ng(8) and syslog-ng.conf(5) for more information.
 #
+# Note: it also sources additional configuration files (*.conf)
+#       located in /etc/syslog-ng/conf.d/
 
 options {
-	flush_lines (0);
-	time_reopen (10);
-	log_fifo_size (1000);
-	long_hostnames (off);
-	use_dns (no);
-	use_fqdn (no);
-	create_dirs (<%= scope.function_bool2yesno([@createdirs]) %>);
-	keep_hostname (yes);
+    flush_lines (0);
+    time_reopen (10);
+    log_fifo_size (1000);
+    chain_hostnames (off);
+    use_dns (no);
+    use_fqdn (no);
+		create_dirs (<%= scope.function_bool2yesno([@createdirs]) %>);
+    keep_hostname (yes);
 };
 
 source s_sys {
-	file ("/proc/kmsg" program_override("kernel: "));
-	unix-stream ("/dev/log");
-	internal();
+    system();
+    internal();
+    # udp(ip(0.0.0.0) port(514));
 };
 
 destination d_cons { file("/dev/console"); };
@@ -62,5 +66,10 @@ log { source(s_sys); filter(f_emergency); destination(d_mlal); };
 log { source(s_sys); filter(f_news); destination(d_spol); };
 log { source(s_sys); filter(f_boot); destination(d_boot); };
 log { source(s_sys); filter(f_cron); destination(d_cron); };
+
+
+# Source additional configuration files (.conf extension only)
+@include "/etc/syslog-ng/conf.d/*.conf"
+
 
 # vim:ft=syslog-ng:ai:si:ts=4:sw=4:et:

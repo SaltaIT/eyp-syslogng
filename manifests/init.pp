@@ -5,6 +5,7 @@ class syslogng  (
                   $manage_docker_service = true,
                   $service_ensure        = 'running',
                   $service_enable        = true,
+                  $createdirs            = true,
                 ) inherits syslogng::params {
 
   class { 'syslogng::install': } ->
