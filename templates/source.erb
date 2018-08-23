@@ -1,14 +1,4 @@
 
 source <%= @sourcename %>{
-  <%= @protocol %>(port(<%= @port %>)<%if @tlskey or @subjectselfsigned -%>
-  transport("tls")
-  tls(
-    key_file=("/etc/pki/tls/private/syslogng-<%= @sourcename %>.key")
-    cert_file("/etc/pki/tls/certs/syslogng-<%= @sourcename %>.pem")
-    <% if ! @peerverify -%>
-    peer-verify(optional-untrusted))
-    <% end -%>
-    )
-<% end -%>
-);
+  <%= @protocol %>(port(<%= @port %>));
 };
