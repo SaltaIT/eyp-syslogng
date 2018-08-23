@@ -1,7 +1,7 @@
 class syslogng::config inherits syslogng {
 
   concat { $syslogng::params::syslogngconf:
-    ensure => $syslogng::ensure_syslogconf,
+    ensure => 'present',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',

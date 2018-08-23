@@ -13,16 +13,9 @@ class syslogng::service inherits syslogng {
   {
     if($syslogng::manage_service)
     {
-      class { 'rsyslog':
-        service_ensure => $syslogng::ensure_rsyslogservice,
-        service_enable => $syslogng::enable_rsyslogservice,
-      }
-
-      ->
-
       service { $syslogng::params::syslogng_servicename:
-        ensure => $syslogng::ensure_syslogservice,
-        enable => $syslogng::enable_syslogservice,
+        ensure => $syslogng::service_ensure,
+        enable => $syslogng::service_enable,
       }
     }
   }
