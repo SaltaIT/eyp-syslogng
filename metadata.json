@@ -1,21 +1,43 @@
 {
   "name": "eyp-syslogng",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "eyp",
   "summary": "manages syslog-ng - no filtering capabilities so far",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/NTTCom-MS/eyp-syslogng",
+  "project_page": "https://github.com/NTTCom-MS/eyp-syslogng",
+  "issues_url": "https://github.com/NTTCom-MS/eyp-syslogng/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0"},
-    {"name":"puppetlabs/concat","version_requirement":">= 1.2.3"},
-    {"version_requirement":">= 0.1.0","name":"eyp/epel"}
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.12.0 < 9.9.9"},
+    {"name":"puppetlabs/concat","version_requirement":">= 1.2.3 < 3.0.0"},
+    {"name":"eyp/eyplib","version_requirement":">= 0.1.0 < 0.2.0"},
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "6" ]
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "OEL",
+      "operatingsystemrelease": [ "6", "7" ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [ "6", "7" ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.8.0"
     }
   ]
 }

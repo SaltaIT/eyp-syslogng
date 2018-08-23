@@ -6,7 +6,7 @@ class syslogng::params {
 		{
 			case $::operatingsystemrelease
 			{
-				/^6.*$/:
+				/^[67].*$/:
 				{
 					$syslogng_package='syslog-ng'
 					$rsyslog_servicename='rsyslog'

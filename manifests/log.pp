@@ -1,4 +1,7 @@
-define syslogng::log($sourcelist, $destinationlist)
+define syslogng::log(
+                      $sourcelist,
+                      $destinationlist,
+                    )
 {
 
   validate_array($sourcelist)

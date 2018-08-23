@@ -1,7 +1,12 @@
-define syslogng::destination($destinationname=$name, $pathpattern,
-                              $owner='root', $group='root',
-                              $filemode='0644', $dirmode='0755',
-                              $createdirs=true)
+define syslogng::destination(
+                              $pathpattern,
+                              $destinationname = $name,
+                              $owner           = 'root',
+                              $group           = 'root',
+                              $filemode        = '0644',
+                              $dirmode         = '0755',
+                              $createdirs      = true
+                            )
 {
 
   concat::fragment{ "${syslogngconf} destination ${destinationname} ${pathpattern}":

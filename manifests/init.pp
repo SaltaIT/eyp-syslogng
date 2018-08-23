@@ -1,7 +1,7 @@
 class syslogng  (
-                  $ensure = 'installed',
-                  $createdirs=true,
-                  $syslogng_conf_file=undef,
+                  $ensure             = 'installed',
+                  $createdirs         = true,
+                  $syslogng_conf_file = undef,
                 ) inherits params {
 
   validate_re($ensure, [ '^installed$', '^latest$', '^purged$' ], "Not a valid package status: ${ensure}")

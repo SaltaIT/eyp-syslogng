@@ -1,6 +1,11 @@
-define syslogng::source ($sourcename=$name, $protocol='udp', $port='514',
-                          $tlskey=undef, $tlscert=undef, $peerverify=false,
-                          $subjectselfsigned=undef,
+define syslogng::source (
+                          $sourcename        = $name,
+                          $protocol          = 'udp',
+                          $port              = '514',
+                          $tlskey            = undef,
+                          $tlscert           = undef,
+                          $peerverify        = false,
+                          $subjectselfsigned = undef,
                         )
 {
 
