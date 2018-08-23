@@ -9,7 +9,7 @@ define syslogng::log(
 
   concat::fragment{ "${syslogngconf} log $name":
     target  => $syslogng::params::syslogngconf,
-    order => '94',
+    order   => '94',
     content => template("syslogng/log.erb"),
     require => [ Syslogng::Source[$sourcelist], Syslogng::Destination[$destinationlist]],
   }

@@ -42,25 +42,25 @@ define syslogng::source (
       validate_string($tlskey)
 
       file { "/etc/pki/tls/private/syslogng-${sourcename}.key":
-				ensure => present,
-				owner => "root",
-				group => "root",
-				mode => 0644,
+				ensure  => 'present',
+				owner   => 'root',
+				group   => 'root',
+				mode    => '0644',
 				require => Package['openssl'],
 				notify  => Service[$syslogng::params::syslogng_servicename],
-				audit => 'content',
-				source => $tlspk
+				audit   => 'content',
+				source  => $tlspk
 			}
 
 			file { "/etc/pki/tls/certs/syslogng-${sourcename}.pem":
-				ensure => present,
-				owner => "root",
-				group => "root",
-				mode => 0644,
+				ensure  => 'present',
+				owner   => 'root',
+				group   => 'root',
+				mode    => '0644',
 				require => Package['openssl'],
 				notify  => Service[$syslogng::params::syslogng_servicename],
-				audit => 'content',
-				source => $tlscert
+				audit   => 'content',
+				source  => $tlscert
 			}
     }
     else
@@ -71,7 +71,7 @@ define syslogng::source (
 
   concat::fragment{ "${syslogngconf} source ${sourcename} ${protocol} ${port}":
     target  => $syslogng::params::syslogngconf,
-    order => '92',
-    content => template("syslogng/source.erb"),
+    order   => '92',
+    content => template("${module_name}/source.erb"),
   }
 }
