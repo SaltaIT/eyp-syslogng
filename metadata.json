@@ -2,7 +2,7 @@
   "name": "eyp-syslogng",
   "version": "0.2.0",
   "author": "eyp",
-  "summary": "manages syslog-ng - no filtering capabilities so far",
+  "summary": "syslog-ng management without filtering capabilities",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-syslogng",
   "project_page": "https://github.com/NTTCom-MS/eyp-syslogng",
