@@ -54,13 +54,36 @@ TODO
 
 #### syslogng
 
+* **manage_package**:        = true,
+* **package_ensure**:        = 'installed',
+* **manage_service**:        = true,
+* **manage_docker_service**: = true,
+* **service_ensure**:        = 'running',
+* **service_enable**:        = true,
+* **createdirs**:            = true,
+
 ### resources
 
 #### syslogng::destination
 
+* **pathpattern**:,
+* **destinationname**: = $name,
+* **owner**:           = 'root',
+* **group**:           = 'root',
+* **filemode**:        = '0644',
+* **dirmode**:         = '0755',
+* **createdirs**:      = true
+
 #### syslogng::log
 
+* **sourcelist**:,
+* **destinationlist**:,
+
 #### syslogng::source
+
+* **sourcename**:        = $name,
+* **protocol**:          = 'udp',
+* **port**:              = '514',
 
 ## Limitations
 
