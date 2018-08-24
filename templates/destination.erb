@@ -1,0 +1,10 @@
+
+destination <%= @destinationname %> {
+  file("<%= @pathpattern %>"
+    owner(<%= @owner %>)
+    group(<%= @group %>)
+    perm(<%= @filemode %>)
+    dir_perm(<%= @dirmode %>)
+    create_dirs (<%= scope.function_bool2yesno([@createdirs]) %>);
+  );
+};

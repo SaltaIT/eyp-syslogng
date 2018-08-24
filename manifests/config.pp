@@ -10,6 +10,6 @@ class syslogng::config inherits syslogng {
   concat::fragment{ "${syslogng::params::syslogngconf} baseconf":
     target  => $syslogng::params::syslogngconf,
     order   => '01',
-    content => template("${module_name}/${syslogng::params::template_name}.erb"),
+    content => template("${module_name}/baseconf/${syslogng::params::template_name}.erb"),
   }
 }

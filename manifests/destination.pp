@@ -12,10 +12,7 @@ define syslogng::destination(
   concat::fragment{ "${syslogng::params::syslogngconf} destination ${destinationname} ${pathpattern}":
     target  => $syslogng::params::syslogngconf,
     order   => '93',
-    content => inline_template("\ndestination ${destinationname} { file(\"${pathpattern}\" \
-    \n\towner(${owner}) group(${group}) perm(${filemode}) dir_perm(${dirmode}) \
-    <% if @createdirs %>create_dirs(yes)<% else %>create_dirs(no)<% end %>);\
-    \n};\n\n"),
+    content => template("${module_name}/destination.erb")
   }
 
 
