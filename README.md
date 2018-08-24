@@ -14,7 +14,7 @@
 
 ## Overview
 
-syslog-ng management
+syslog-ng management without filtering capabilities
 
 ## Module Description
 
