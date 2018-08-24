@@ -12,7 +12,7 @@ class syslogng::params {
           $rsyslog_servicename='rsyslog'
           $syslogng_servicename='syslog-ng'
           $syslogngconf='/etc/syslog-ng/syslog-ng.conf'
-          $template_name='syslogngconf'
+          $template_name='syslogngconf32'
         }
         /^7.*$/:
         {
