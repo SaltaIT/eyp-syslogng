@@ -4,9 +4,9 @@
   "author": "eyp",
   "summary": "syslog-ng management without filtering capabilities",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-syslogng",
-  "project_page": "https://github.com/NTTCom-MS/eyp-syslogng",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-syslogng/issues",
+  "source": "https://github.com/SaltaIT/eyp-syslogng",
+  "project_page": "https://github.com/SaltaIT/eyp-syslogng",
+  "issues_url": "https://github.com/SaltaIT/eyp-syslogng/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.12.0 < 9.9.9"},
     {"name":"puppetlabs/concat","version_requirement":">= 1.2.3 < 9.9.9"},
